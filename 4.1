@@ -1,0 +1,28 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.edge.service import Service
+from selenium.webdriver.edge.options import Options
+import time
+
+edge_options = Options()
+
+
+service = Service("msedgedriver.exe")
+
+driver = webdriver.Edge(service=service, options=edge_options)
+
+driver.get("https://www.google.com")
+
+driver.maximize_window()
+
+time.sleep(2)
+
+sample = driver.find_element(By.NAME,"q")
+
+if sample:
+     print("The test is executed")
+else:
+     print("The test failed")
+
+time.sleep(5)
+driver.quit()
